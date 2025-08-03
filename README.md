@@ -1,6 +1,6 @@
 # RL Swarm
 
-[![Release](https://img.shields.io/badge/Release-Version-8a2be2)](https://github.com/gensyn-ai/rl-swarm/releases)
+[![Release](https://img.shields.io/github/v/release/gensyn-ai/rl-swarm?label=Release&color=8a2be2)](https://github.com/gensyn-ai/rl-swarm/releases)
 
 RL Swarm is a peer-to-peer system for reinforcement learning. It allows you to train models collaboratively with others in the swarm, leveraging their collective intelligence. It is open source and permissionless, meaning you can run it on a consumer laptop at home or on a powerful GPU in the cloud. You can also connect your model to the Gensyn Testnet to receive an on-chain identity that tracks your progress over time.
 
