@@ -57,9 +57,9 @@ game_manager:
     models:
       - _target_: transformers.AutoModelForCausalLM.from_pretrained
         pretrained_model_name_or_path: ${oc.env:MODEL_NAME, ${gpu_model_choice:${default_large_model_pool},${default_small_model_pool}}} 
-        gradient_checkpointing: true # add
-        torch_dtype: torch.float32 # add
+        torch_dtype: float32 # add
         low_cpu_mem_usage: true # add
+        gradient_checkpointing: true # add
     config:
       _target_: trl.trainer.GRPOConfig
       logging_dir: ${log_dir}
