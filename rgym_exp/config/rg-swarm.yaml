@@ -57,6 +57,9 @@ game_manager:
     models:
       - _target_: transformers.AutoModelForCausalLM.from_pretrained
         pretrained_model_name_or_path: ${oc.env:MODEL_NAME, ${gpu_model_choice:${default_large_model_pool},${default_small_model_pool}}} 
+        gradient_checkpointing: true # add
+        torch_dtype: torch.float32 # add
+        low_cpu_mem_usage: true # add
     config:
       _target_: trl.trainer.GRPOConfig
       logging_dir: ${log_dir}
@@ -76,8 +79,8 @@ game_manager:
     system_prompt_id: 'default'
     seed: ${training.seed}
     num_transplant_trees: ${training.num_transplant_trees}
-    streaming: true # add test 
-    load_from_cache_file: false # add test
+    streaming: true # add
+    # load_from_cache_file: false # add
   communication:
     _target_: genrl.communication.hivemind.hivemind_backend.HivemindBackend
     initial_peers: ${communications.initial_peers}
