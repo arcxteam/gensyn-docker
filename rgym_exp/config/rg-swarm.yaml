@@ -59,11 +59,11 @@ game_manager:
         pretrained_model_name_or_path: ${oc.env:MODEL_NAME, ${gpu_model_choice:${default_large_model_pool},${default_small_model_pool}}} 
         torch_dtype: float32 # add
         low_cpu_mem_usage: true # add
-        gradient_checkpointing: true # add
     config:
       _target_: trl.trainer.GRPOConfig
       logging_dir: ${log_dir}
       fp16: ${training.fp16}
+      gradient_checkpointing: true # add false/true
       per_device_train_batch_size: 1
       gradient_accumulation_steps: 4
     log_with: wandb
