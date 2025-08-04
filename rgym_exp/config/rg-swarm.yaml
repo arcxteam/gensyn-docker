@@ -8,7 +8,6 @@ training:
   num_transplant_trees: 1 # default 2
   seed: 42
   fp16: false # set true if GPU support
-  bf32: false # set true if GPU or cpu bf16/32 ditambahkan
 
 blockchain:
   alchemy_url: "https://gensyn-testnet.g.alchemy.com/public"
@@ -62,7 +61,6 @@ game_manager:
       _target_: trl.trainer.GRPOConfig
       logging_dir: ${log_dir}
       fp16: ${training.fp16}
-      bf32: ${training.bf32} # ditambahkan
     log_with: wandb
     log_dir: ${log_dir}
     epsilon: 0.2
@@ -78,6 +76,8 @@ game_manager:
     system_prompt_id: 'default'
     seed: ${training.seed}
     num_transplant_trees: ${training.num_transplant_trees}
+    streaming: true # add test 
+    load_from_cache_file: false # add test
   communication:
     _target_: genrl.communication.hivemind.hivemind_backend.HivemindBackend
     initial_peers: ${communications.initial_peers}
