@@ -4,7 +4,7 @@ training:
   max_round: 100000
   max_stage: 1
   hf_push_frequency: 1
-  num_generations: 1 # default 2
+  num_generations: 4 # default 2
   num_transplant_trees: 1 # default 2
   seed: 42
   fp16: false # set true if GPU support
